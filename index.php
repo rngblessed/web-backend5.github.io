@@ -141,10 +141,10 @@
                     <label>
                         Биография:<br />
 
-                        <textarea class="form-control rounded-pill" placeholder="Напишите свою биографию" name="bio"
-                            <?php if (isset($_COOKIE['bio_error']) && $_COOKIE['bio_error'] === '1') {
+                        <textarea class="form-control rounded-pill" placeholder="Напишите свою биографию" name="Biographi"
+                            <?php if (isset($_COOKIE['Biographi_error']) && $_COOKIE['Biographi_error'] === '1') {
                                 print 'class="error"';
-                            } ?>><?php echo isset($_COOKIE['bio_value']) ? $_COOKIE['bio_value'] : ''; ?></textarea>
+                            } ?>><?php echo isset($_COOKIE['Biographi_value']) ? $_COOKIE['Biographi_value'] : ''; ?></textarea>
                     </label>
                 </div>
 
