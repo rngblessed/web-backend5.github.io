@@ -1,8 +1,8 @@
 <?php
-$user = 'u67307';
-$pass = '2532509';
+$user = 'u67323';
+$pass = '3649631';
 $db = new PDO(
-    'mysql:host=localhost;dbname=u67307',
+    'mysql:host=localhost;dbname=u67323',
     $user,
     $pass,
     [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
@@ -30,19 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         <head>
             <meta charset="UTF-8" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <title>POFFIZADANIE3</title>
+            <title>ZADANIE5</title>
             <link rel="stylesheet" href="main.css" />
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-                integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/icheck-material@1.0.1/icheck-material.min.css" />
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/icheck-material@1.0.1/icheck-material-custom.min.css" />
-
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" />
-            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-            <link rel="stylesheet" type="text/css"
-                href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
         </head>
         <div class="osnova">
@@ -63,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 } else {
     try {
         $login = $_POST['login'];
-        $query = "SELECT * FROM users WHERE login = :login ";
+        $query = "SELECT * FROM main WHERE login = :login ";
         $stmt = $db->prepare($query);
         $stmt->bindParam(':login', $login);
         $stmt->execute();

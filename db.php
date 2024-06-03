@@ -1,9 +1,9 @@
 <?PHP
 
-$user = 'u67307';
-$pass = '2532509';
+$user = 'u67323';
+$pass = '3649631';
 $db = new PDO(
-    'mysql:host=localhost;dbname=u67307',
+    'mysql:host=localhost;dbname=u67323',
     $user,
     $pass,
     [PDO::ATTR_PERSISTENT => true, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
@@ -115,11 +115,11 @@ try {
             empty($errors) && !empty($_COOKIE[session_name()]) &&
             session_start() && !empty($_SESSION['login'])
         ) {
-            $stmt = $db->prepare("SELECT full_name, phone, email, birth_date, gender, bio, contract_agreed FROM users WHERE login = :login");
+            $stmt = $db->prepare("SELECT Name, phone, email, birth_date, gender, bio, contract_agreed FROM main WHERE login = :login");
             $stmt->bindParam(':login', $_SESSION['login']);
             $stmt->execute();
             $values = $stmt->fetch(PDO::FETCH_ASSOC);
-            printf('Имя пользователя: %s<br>', $values['full_name']);
+            printf('Имя пользователя: %s<br>', $values['Name']);
             printf('Телефон: %s<br>', $values['phone']);
             printf('Email: %s<br>', $values['email']);
             printf('Дата рождения: %s<br>', $values['birth_date']);
@@ -210,8 +210,8 @@ try {
             $someGroupName = $_POST['someGroupName'];
             $bio = $_POST['bio'];
             $checkt = $_POST['checkt'];
-            $stmt = $db->prepare("UPDATE users SET full_name = :full_name, phone = :phone, email = :email, birth_date = :birth_date, gender = :gender, bio = :bio, contract_agreed = :contract_agreed WHERE login = :login");
-            $stmt->bindParam(':full_name', $fio);
+            $stmt = $db->prepare("UPDATE main SET Name = :Name, phone = :phone, email = :email, birth_date = :birth_date, gender = :gender, bio = :bio, contract_agreed = :contract_agreed WHERE login = :login");
+            $stmt->bindParam(':Name', $fio);
             $stmt->bindParam(':phone', $tel);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':birth_date', $date);
@@ -227,7 +227,7 @@ try {
             setcookie('login', $login);
             setcookie('pass', $password, time() + 12 * 30 * 24 * 60 * 60);
             setcookie('save', '1');
-            $stmt = $db->prepare("INSERT INTO users (full_name, phone,email,birth_date,gender,bio,contract_agreed,login,password_hash) VALUES (:full_name, :phone,:email,:birth_date,:gender,:bio,:contract_agreed,:login,:password_hash)");
+            $stmt = $db->prepare("INSERT INTO main (Name, phone,email,birth_date,gender,bio,contract_agreed,login,password_hash) VALUES (:Name, :phone,:email,:birth_date,:gender,:bio,:contract_agreed,:login,:password_hash)");
             $fio = $_POST['fio'];
             $email = $_POST['email'];
             $tel = $_POST['tel'];
@@ -235,7 +235,7 @@ try {
             $someGroupName = $_POST['someGroupName'];
             $bio = $_POST['bio'];
             $checkt = $_POST['checkt'];
-            $stmt->bindParam(':full_name', $fio);
+            $stmt->bindParam(':Name', $fio);
             $stmt->bindParam(':phone', $tel);
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':birth_date', $date);
