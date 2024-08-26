@@ -34,17 +34,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             <link rel="stylesheet" href="main.css" />
 
         </head>
-        <div class="osnova">
-            <div class="wrap1 lh-lg font-monospace">
+        <div>
+            <div>
                 <form action="" method="post">
-                    <label for="validationCustom01" class="form-label">Логин</label>
-                    <input class="form-control rounded-pill" name="login" />
-                    <label for="validationCustom01" class="form-label">Пароль</label>
-                    <input class="form-control rounded-pill" name="pass" />
+                    <label for="validationCustom01">Логин</label>
+                    <input name="login" />
+                    <label for="validationCustom01">Пароль</label>
+                    <input name="pass" />
                     </br>
-                    <input class="custom-btn btn-1" type="submit" value="Войти" />
+                    <input type="submit" value="Войти" />
                     </br>
-                    <input class="custom-btn btn-1" type="submit" value="Выйти">
+                    <input type="submit" value="Выйти">
             </div>
         </div>
         <?php
